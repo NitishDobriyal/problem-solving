@@ -37,11 +37,12 @@ class Node:
         q1.append(self)
         while(len(q1)>0):
             item = q1.popleft()
-            print(item)
-            if(self.left):
-                q1.append(self.left)
-            if(self.right):
-                q1.append(self.right)
+            print(item.val)
+            
+            if(item.left ):
+                q1.append(item.left)
+            if(item.right ):
+                q1.append(item.right)
      
 if __name__ == "__main__":
     root = Node(4)
