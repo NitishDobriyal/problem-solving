@@ -1,4 +1,4 @@
-# Preorder, Postorder and Inorder traversals
+# Max Element in a BT
 from collections import deque
 class Node:
     def __init__(self,val):
