@@ -1,4 +1,4 @@
-# Preorder, Postorder and Inorder traversals
+# LevelOrder traversals
 from collections import deque
 class Node:
     def __init__(self,val):
