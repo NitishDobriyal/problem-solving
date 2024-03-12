@@ -32,19 +32,10 @@ class Node:
             if self.right:
                 self.right.print_tree()
                 
-    def LevelOrder(self):
-        q1 = deque()
-        q1.append(self)
-        while(len(q1)>0):
-            item = q1.popleft()
-            print(item.val)
-            
-            if(item.left ):
-                q1.append(item.left)
-            if(item.right ):
-                q1.append(item.right)
 
-         
+    def max_ele(self):
+        return max(self.val,self.left.max_ele() if self.left else 0,
+                   self.right.max_ele() if self.right else 0)
      
 if __name__ == "__main__":
     root = Node(4)
@@ -55,7 +46,6 @@ if __name__ == "__main__":
     root.insert(9)
     root.insert(6)
     root.insert(1)
-    # root.PreOrder()
-    # root.PostOrder()
-    # root.InOrder()
-    root.LevelOrder()
+    root.insert(10)
+    # print(root.calc_Height())
+    print(root.max_ele())
