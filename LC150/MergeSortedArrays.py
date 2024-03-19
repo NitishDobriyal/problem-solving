@@ -28,4 +28,12 @@ nums2 = [1,2,17]
 n = 3
 
 print(MergeSortedArrays(nums1,nums2,m,n))
+
+#Intuition
+'''
+1. Last element of nums1 and nums2 are the greatest,so we will compare elements from end and which ever 
+is greater will put that in nums1 end, where we have zeroes.
+2. So loop nums2, from end till -1 index and if at any time, nums1 is fully compared, just return
+3. Now nums1 will be fixed, and we have to loop nums2 and put elements in nums1 where we have 0(zeroes)
+'''
   
