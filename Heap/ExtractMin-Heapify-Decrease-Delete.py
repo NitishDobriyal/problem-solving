@@ -7,10 +7,12 @@ class MyMinHeap:
         return (index-1)//2
     
     def LeftChild(self,index):
-        return 2*(index)+1
+        left_index = 2*(index)+1
+        return left_index if left_index<len(self.arr) else None
     
     def Rightchild(self,index):
-        return 2*(index)+2
+        right_index = 2*(index)+2
+        return right_index if right_index<len(self.arr) else None
 
     def ExtractMin(self):
         '''
@@ -34,35 +36,73 @@ class MyMinHeap:
         self.arr[parent_index],self.arr[-1] = self.arr[-1],self.arr[parent_index]
 
         self.arr.pop()
-        return self.arr
-        # self.MinHeapify()
+        # return self.arr
+        self.ShowHeap()
+        self.MinHeapify()
 
     def MinHeapify(self):
         current = 0
         while(current<len(self.arr)):
             left = self.LeftChild(current)
             right = self.Rightchild(current)
-            if(self.arr[current]>self.arr[left] or self.arr[current]>self.arr[right]):
+
+            
+            if not (left and right):
+                return
+            if (self.arr[current]>self.arr[left] or self.arr[current]>self.arr[right]):
                 if(self.arr[left]<self.arr[right]):
+                    print('LEFT SWAP')
+                    print('Arr right',self.arr[right])
                     self.arr[current],self.arr[left] = self.arr[left],self.arr[current]
                     current =  left
                 else:
+                    print('RIGHT SWAP')
                     self.arr[current],self.arr[right] = self.arr[right],self.arr[current]
                     current = right
+
             else:
                 break
+            print('------------')
+            
+    #Approach
+    '''
+    1. Decrease the element
+    2. Check for parent, and loop untill you find parent is less. Otherwise swap parent and current element
+    '''
+    def DecreaseKey(self,index,decreased_val):
+        self.arr[index] = decreased_val
+        while(index>0):
+            parent_idx = self.Parent(index)
+            if(self.arr[index]<self.arr[parent_idx]):
+                self.arr[index],self.arr[parent_idx] = self.arr[parent_idx],self.arr[index]
+                index = parent_idx
+            else:
+                break   
+        return self.arr    
+
+    def DeleteElement(self,index):
+        decreased_val = float('-inf')
+        self.DecreaseKey(index,decreased_val)
+        self.ShowHeap()
+        self.ExtractMin()
+
 
     def ShowHeap(self):
         print(self.arr)    
 
 
-arr = [12,25,30,35,40,80,32,100,70,60]
-h1 = MyMinHeap(arr)
-h1.ShowHeap()
-h1.ExtractMin()
-h1.ShowHeap()
-h1.MinHeapify()
-h1.ShowHeap()
+# arr = [12,25,30,35,40,80,32,100,70,60]
+# arr = [25,35,30,60,40,80,34,100,70]
+# h1 = MyMinHeap(arr)
+# h1.ShowHeap()
+# h1.DeleteElement(3)
+# h1.ShowHeap()
+
+arr = [70,25,30,35,40,80,34,65]
+h2 = MyMinHeap(arr)
+h2.ShowHeap()
+h2.ExtractMin()
+h2.ShowHeap()
 
 '''
 TC:
