@@ -1,0 +1,31 @@
+from collections import deque
+
+def queue_operations():
+  queue = deque()
+
+  # Enqueue operations
+  queue.append(10)
+  queue.append(20)
+  queue.append(30)
+
+  print("Queue after enqueue operations:", queue)
+
+  # Dequeue operation
+  item = queue.popleft()
+  print("Dequeued item:", item)
+  print("Queue after dequeue operation:", queue)
+
+  # Check if queue is empty
+  if not queue:
+    print("Queue is empty")
+  else:
+    print("Queue is not empty")
+
+  # Peek operation (view the front element without removing)
+  print("Front element:", queue[0])
+
+  # Length of the queue
+  print("Length of the queue:", len(queue))
+
+if __name__ == "__main__":
+  queue_operations()

@@ -7,7 +7,7 @@ class Node:
     
     def insert(self,val):
 
-        if not self:
+        if not self.val:
             return Node(val)
             
         if val<self.val:

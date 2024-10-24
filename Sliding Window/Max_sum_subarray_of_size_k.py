@@ -29,6 +29,8 @@ def maxSum(arr, n, k):
 		res = max(res, curr_sum)
 		print('I=',i)
 		print('i-k',i-k)
+		print('res',res)
+		print('--------')
 
 	return res
 

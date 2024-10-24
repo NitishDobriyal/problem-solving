@@ -1,0 +1,10 @@
+from collections import deque
+
+def process_queue(queue):
+  while queue and queue[0] < 5:
+    queue.popleft()
+
+# Example usage:
+my_queue = deque([1, 2, 3, 5, 6, 7])
+process_queue(my_queue)
+print(my_queue)  # Output: deque([5, 6, 7])

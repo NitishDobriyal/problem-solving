@@ -1,5 +1,4 @@
 # BST Search
-from collections import deque
 class Node:
     def __init__(self,val):
         self.left = None

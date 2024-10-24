@@ -9,7 +9,7 @@ for i in range(1,len(a)):
     else:
         min=i
 print(max_diff) 
-#So to get max profit one should've bout stock at price 2 and sold at 10,           
+#So to get max profit one should've bought stock at price 2 and sold at 10,           
 
 # TC-O(n^2)
 # max_diff=0

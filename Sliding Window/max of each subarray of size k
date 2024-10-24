@@ -1,0 +1,35 @@
+from collections import deque
+
+def max_of_each_subarray(a,k):
+    q = deque()
+    i=0
+    j=1
+    res = []
+
+    while(j<len(a)):
+        if(len(q)==0):
+            q.append(a[j])
+        else:
+            while(len(q)>0 and q[0]<a[j]):
+                q.popleft()
+            q.append(a[j])
+
+            if(j-i+1==k):
+                print(q)
+                res.append(q[0])
+                if(q[0]==a[i]):
+                    q.popleft()
+                i+=1
+            j+=1
+    return res
+
+a = [1,2,3,-2,2,5,0,7]
+k = 3
+
+print(max_of_each_subarray(a,k))
+
+
+
+# 1,2,3,-2,2,5,0,7
+
+# 3,3,3
